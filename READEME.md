@@ -4,32 +4,32 @@
 
 # 在VMware上配置CentOS系统的虚拟机 
 * 安装虚拟机
-    1. 选择文件，新建虚拟机，在弹出的窗口选择典型  
+    - 选择文件，新建虚拟机，在弹出的窗口选择典型  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image014.jpg)  
-	2. 选择如图  
+    - 选择如图  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image016.jpg)  
-	3. 选择如图  
+    - 选择如图  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image018.jpg)  
-	4. 直接下一步  
+    - 直接下一步  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image020.jpg)  
-	5. 一直依照默认设置，点击下一步，直到此处，点击完成  
+     - 一直依照默认设置，点击下一步，直到此处，点击完成  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image022.jpg)  
-	6. 选择CentOS，点击编辑虚拟机，选择CD/DVD  
+    - 选择CentOS，点击编辑虚拟机，选择CD/DVD  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image024.jpg)  
-	7. 选择使用ISO映像文件，点击浏览，选择你的iso映像文件  
+    - 选择使用ISO映像文件，点击浏览，选择你的iso映像文件  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image026.jpg)  
-	8. 点击确定，完成虚拟机的创建。  
-	9. 开启虚拟机，若显示BISO的虚拟化设置未开启，请自行开启。  
-	10. 选择Install CentOS 7  
+     - 点击确定，完成虚拟机的创建。  
+     - 开启虚拟机，若显示BISO的虚拟化设置未开启，请自行开启。  
+     - 选择Install CentOS 7  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image028.jpg)  
-	11. 选择如图  
+     - 选择如图  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image030.jpg)  
-	12. 选择如图  
+     - 选择如图  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image032.jpg)  
-	13. 设置root用户的密码  
+     - 设置root用户的密码  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image034.jpg)  
-	14. 点击Reboot，完成系统安装  
-	15. 按默认选择，进入系统，输入用户名和密码  
+     - 点击Reboot，完成系统安装  
+     - 按默认选择，进入系统，输入用户名和密码  
 * 配置虚拟机网络  
   ```
   # 修改centos虚拟机的网络配置文件，设置静态ip，ip获取方式等等
