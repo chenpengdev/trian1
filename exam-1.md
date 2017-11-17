@@ -1,96 +1,134 @@
 # 安装VMware
-* 下载VMware安装包，双击安装包，然后按图示步骤安装  
-![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image002.jpg)  
-![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image004.jpg)  
-![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image006.jpg)  
-![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image008.jpg)  
-![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image010.jpg)  
-![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image012.jpg)  
-* 点击安装，完成安装，在安装完毕后输入秘钥
+* 下载VMware安装包，双击安装包，按默认配置安装即可
+* 安装完毕后输入秘钥
 
 # 在VMware上配置CentOS系统的虚拟机 
 * 安装虚拟机
-    1. 选择文件，新建虚拟机，在弹出的窗口选择典型  
+    - 选择文件，新建虚拟机，在弹出的窗口选择典型  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image014.jpg)  
-	2. 选择如图  
+    - 选择如图  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image016.jpg)  
-	3. 选择如图  
+    - 选择如图  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image018.jpg)  
-	4. 直接下一步  
+    - 直接下一步  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image020.jpg)  
-	5. 一直依照默认设置，点击下一步，直到此处，点击完成  
+     - 一直依照默认设置，点击下一步，直到此处，点击完成  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image022.jpg)  
-	6. 选择CentOS，点击编辑虚拟机，选择CD/DVD  
+    - 选择CentOS，点击编辑虚拟机，选择CD/DVD  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image024.jpg)  
-	7. 选择使用ISO映像文件，点击浏览，选择你的iso映像文件  
+    - 选择使用ISO映像文件，点击浏览，选择你的iso映像文件  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image026.jpg)  
-	8. 点击确定，完成虚拟机的创建。  
-	9. 开启虚拟机，若显示BISO的虚拟化设置未开启，请自行开启。  
-	10. 选择Install CentOS 7  
+     - 点击确定，完成虚拟机的创建。  
+     - 开启虚拟机，若显示BISO的虚拟化设置未开启，请自行开启。  
+     - 选择Install CentOS 7  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image028.jpg)  
-	11. 选择如图  
+     - 选择如图  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image030.jpg)  
-	12. 选择如图  
+     - 选择如图  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image032.jpg)  
-	13. 设置root用户的密码  
+     - 设置root用户的密码  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image034.jpg)  
-	14. 点击Reboot，完成系统安装  
-	15. 按默认选择，进入系统，输入用户名和密码  
+     - 点击Reboot，完成系统安装  
+     - 按默认选择，进入系统，输入用户名和密码  
 * 配置虚拟机网络  
-	1. 选择编辑，虚拟网络编辑器  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image036.jpg) 
-	1. 查看NAT模式的设置  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image038.jpg) 
-	1. 记录子网掩码：255.255.255.0，网关172.16.75.2  
-	1. 修改/etc/sysconfig/network-scripts/目录下的ifcfg-ens33文件如下：(修改命令：vi /etc/sysconfig/network-scripts/ifcfg-ens33)  
-		![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image040.jpg) 
-		修改
-		BOOTPRORO=static       //将IP获取方式设为静态  
-		ONBOOT=yes			  //启用网络服务  
-		IPADDR0=172.16.75.97	  //设置虚拟机IP，要与网关在同一网段  
-		PREFIXO0=24			  //设置子网掩码  
-		GATEWAY0=172.16.75.2   //设置网关  
-		DNS1=114. 114. 114. 114  //设置DNS：国内  
-		DNS2=8.8.8.8			  //设置DNS：谷歌  
-		(此处其实设置BOOTPRORO=dhcp,ONBOOT=yes，即可开启网络，这里设置为静态，是为了之后开启远程控制)  
-	1. 执行命令：service network restart，重启网络服务，开启网络  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image042.jpg) 
-	1. 执行命令：ping www.baidu.con，测试网络开启是否成功  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image044.jpg) 
-	1. 网络配置成功  
+  ```
+  # 修改centos虚拟机的网络配置文件，设置静态ip，ip获取方式等等
+  $ vi /etc/sysconfig/network-scripts/ifcfg-ens33
+  # 修改后的ifcfg-ens33
+    TYPE=Ethernet
+    PROXY_METHOD=none
+    BROWSER_ONLY=no
+    BOOTPROTO=static
+    DEFROUTE=yes
+    IPV4_FAILURE_FATAL=no
+    IPV6INIT=yes
+    IPV6_AUTOCONF=yes
+    IPV6_DEFROUTE=yes
+    IPV6_FAILURE_FATAL=no
+    IPV6_ADDR_GEN_MODE=stable-privacy
+    NAME=ens33
+    UUID=63a37e5d-1639-452c-94c7-bee57e3e4c1d
+    DEVICE=ens33
+    ONBOOT=yes
+
+    IPADDR0=172.16.75.97
+    PREFIXO0=24
+    GATEWAY0=172.16.75.2
+    DNS1=114.114.114.114
+    DNS2=8.8.8.8
+
+  # 重启网络服务
+  $ systemctl restart network
+  
+  # 查看静态IP设置是否成功
+  $ ip addr
+  1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host 
+           valid_lft forever preferred_lft forever
+  2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast   state UP qlen 1000
+        link/ether 00:0c:29:65:d7:de brd ff:ff:ff:ff:ff:ff
+          inet 172.16.75.97/16 brd 172.16.255.255 scope global ens33
+           valid_lft forever preferred_lft forever
+        inet6 fe80::5eb7:bd88:c864:5c19/64 scope link 
+           valid_lft forever preferred_lft forever
+  
+  # 测试网络是否连通
+  $ ping www.baidu.com
+  PING www.a.shifen.com (180.97.33.108) 56(84) bytes of data.
+  64 bytes from 180.97.33.108 (180.97.33.108): icmp_seq=1 ttl=128 time=33.8 ms
+  64 bytes from 180.97.33.108 (180.97.33.108): icmp_seq=2 ttl=128 time=34.0 ms
+  64 bytes from 180.97.33.108 (180.97.33.108): icmp_seq=3 ttl=128 time=33.3 ms
+  ^C   
+  --- www.a.shifen.com ping statistics ---
+  3 packets transmitted, 3 received, 0% packet loss, time 2004ms
+  rtt min/avg/max/mdev = 33.360/33.731/34.012/0.312 ms
+
+  # 网络配置成功
+  ``` 
 * 配置SSH服务  
-	1. 查看CentOS7是否安装了openssh-server（命令：yum list installed | grep openssh-server） 
-![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image046.jpg)   
-	若未安装，使用yum install openssh-server，安装openssh-server  
-	1. 编辑/etc/ssh/目录下的sshd服务配置文件sshd_config，将文件中关于监听端口、监听地址前的#号去除，该部分如下：  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image048.jpg)   
-	然后开启允许远程登陆，去除PermitRootLogin的#号  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image050.jpg)   
-	最后，开启使用用户名密码来作为连接验证，去除PasswordActhentication的#  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image052.jpg)   
-	1. 开启sshd服务，输入service sshd start  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image054.jpg)   
-	1. 检查sshd服务是否已经开启，输入ps –e | grep sshd   
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image056.jpg)  
-	1. 在windows主机中，通过ipconfig查看VMnet8d的连接信息，发下ip地址如下：  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image058.jpg) 
-	1. 在CentOS中，输入ifconfig查看网络连接地址，发现IP地址如下：  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image060.jpg) 
-	1. 在CentOS中，输入ping 172.16.75.1，测试是否能连通主机  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image062.jpg) 
-	1. 在windows中，输入ping 172.16.75.97，测试是否能连通CentOS  
-	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image064.jpg) 
-	1. 若不能，修改网络适配器VMnet8的TCP/IPv4的属性，进行一下网络配置，保证主机的  IP  和  CentOS  的  IP  在同一网络区段中，然后在使用ping命令测试
+   ```
+   # 查看CentOS7是否安装了openssh-server
+   $ yum list installed | grep openssh-server
+   openssh-server.x86_64                7.4p1-11.el7                   @anaconda 
+   # 若未安装，可以使用yum install openssh-server，安装openssh-server
+   
+   # 编辑/etc/ssh/目录下的sshd服务配置文件sshd_config，将文件中关于监听端口、监听地址前的#号去除
+   $ vi /etc/ssh/sshd_config
+   #  需去除#部分
+   #   #Port 22
+   #   #ListenAddress 0.0.0.0
+   #   #ListenAddress ::
+   #
+   #   #PermitRootLogin yes
+   #
+   #   #PasswordAuthentication yes
+
+   # 开启ssh服务，并将ssh服务设置为开机启动
+   $ systemctl start sshd
+   $ systemctl enable sshd
+
+   # 检查sshd服务是否已经开启
+   $ ps –e | grep sshd 
+   1024 ?        00:00:00 sshd
+   4789 ?        00:00:00 sshd
+
+  # ssh配置成功
+  ```
+
 * 安装远程连接工具XShell  
-	1. 打开安装包，一直按照默认设置安装即可  
+	- 打开安装包，一直按照默认设置安装即可  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image066.jpg)   
-	1. 创建一个新的连接  
+	- 创建一个新的连接  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image068.jpg)   
-	1. 点击连接，输入用户名和密码  
+        注：主机地址填写为centos的ip地址
+	- 点击连接，输入用户名和密码  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image070.jpg)   
-	1. 连接成功  
+	- 连接成功  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image071.png)   
-	1. 远程连接配置完成  
+	- 远程连接配置完成  
 # Ubuntu安装  
 1. 先按创建虚拟机步骤，选择Ubuntu，并将要安装的Ubuntu的iso镜像导入  
 2. 运行UBuntu系统，开始安装系统  
@@ -131,10 +169,29 @@
 18. 选择continue，安装完成  
  ![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/Ubuntu%20(17).jpg)  
 19. 进入系统，查看是否开启SSH服务  
- ![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/Ubuntu%20(18).jpg)  
-若未开启，使用sudo apt-get install openssh-server 开启SSH服务   
+   ```
+  $ ps -e | grep ssh
+   818 ?        00:00:00 sshd
+  1216 ?        00:00:00 sshd
+  1323 ?        00:00:00 sshd
+  # 若未开启，使用sudo apt-get install openssh-server 开启SSH服务 
+   ```
 20. 查看虚拟机IP   
- ![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/Ubuntu%20(19).jpg)  
+ ```
+$ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 00:0c:29:e5:bd:47 brd ff:ff:ff:ff:ff:ff
+    inet 172.16.75.129/24 brd 172.16.75.255 scope global dynamic ens33
+       valid_lft 1281sec preferred_lft 1281sec
+    inet6 fe80::20c:29ff:fee5:bd47/64 scope link 
+       valid_lft forever preferred_lft forever
+ ```
 21. 通过XShell连接，输入用户名和密码   
  ![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/Ubuntu%20(20).jpg)  
 连接成功   
