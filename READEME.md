@@ -119,16 +119,16 @@
   ```
 
 * 安装远程连接工具XShell  
-	1. 打开安装包，一直按照默认设置安装即可  
+	- 打开安装包，一直按照默认设置安装即可  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image066.jpg)   
-	1. 创建一个新的连接  
+	- 创建一个新的连接  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image068.jpg)   
         注：主机地址填写为centos的ip地址
-	1. 点击连接，输入用户名和密码  
+	- 点击连接，输入用户名和密码  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image070.jpg)   
-	1. 连接成功  
+	- 连接成功  
 	![图片加载失败](https://raw.githubusercontent.com/shenyuanyu/shenyuanyu/master/picture/image071.png)   
-	1. 远程连接配置完成  
+	- 远程连接配置完成  
 # Ubuntu安装  
 1. 先按创建虚拟机步骤，选择Ubuntu，并将要安装的Ubuntu的iso镜像导入  
 2. 运行UBuntu系统，开始安装系统  
